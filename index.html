@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@300&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/f6fbc72d0a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Ethan McDermott</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            // $('.fa-angle-double-down').hover(function() {
+            //     $(this).animate({marginTop: "4rem"})
+            // }, function() {
+            //     $(this).animate({marginTop: "3rem"})
+            // })
+
+            // setTimeout(
+            //     function() {
+            //         $("#learn-more").addClass("hover-glow")
+            //         var counter = 0;
+            //         while (counter < 5) {
+            //             $("#learn-more").animate({marginTop: "4rem"});
+            //             $("#learn-more").animate({marginTop: "3rem"});
+            //             counter ++;
+            //         }
+            //     }, 5000
+            // );
+
+            // setTimeout(
+            //     function() {
+            //         $("#learn-more").removeClass("hover-glow");
+            //     }, 9000
+            // );
+            $(window).scroll(function() {
+                if ($(window).scrollTop() >= 300) {
+                    $("#header").addClass("sticky");
+                    $("#header-left").addClass("scroll-header-left");
+                    $("#header-right").addClass("scroll-header-right");
+                } else {
+                    $("#header").removeClass("sticky");
+                }
+            })
+        })
+    </script>
+    <div id="wrapper">
+        <nav id="header">
+            <a id="header-right" href="#wrapper">&lt HOME &gt</a>
+            <div id="header-left">
+                <a href="#about">&lt About &gt</a>
+                <a href="#skills">&lt Skills &gt</a>
+                <a href="#projects">&lt Projects &gt</a>
+                <a href="#contact">&lt Contact &gt</a>
+            </div>
+            <button id="nav-bar-btn">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+        </nav>
+        <nav id="mobile-nav">
+            <a id="header-right" href="#wrapper">&lt HOME &gt</a>
+            <a href="#about">&lt About &gt</a>
+            <a href="#skills">&lt Skills &gt</a>
+            <a href="#projects">&lt Projects &gt</a>
+            <a href="#contact">&lt Contact &gt</a>
+        </nav>
+        <div id="content">
+            <div id="intro">
+                <h3>Hello, my name is</h3>
+                <h1>Ethan McDermott</h1>
+                <h2>I am a Software Developer</h2>
+                <a id="learn-more-btn" href="#about"><i id="learn-more" class="fas fa-angle-double-right fa-2x"></i> <span id="learn-more-text">Learn More</span></a>
+            </div>
+
+            <div id="about">
+                <h2 class="section-header">&lt About &gt</h2>
+                    <h3 class="section-content"> 
+                        Hello, my name is Ethan McDermott and I am a software developer. I graduated from Coding Dojo's part time bootcamp in December of 2021 where I learned HTML, CSS, JavaScript, SQL, Python, and Django. <br> Prior to my journey into software development,
+                         I earned my B.A. in Economics from UNCW with a minor in Math. I have worked as a Data Analyst for the past 2.5 years. I am excited to continue learning and growing as a developer.
+                    </h3>
+                <h2 class="section-header">&lt /About &gt</h2>
+                <a href="#skills"><i id="learn-more-skills" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
+                <a href="#skills"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+            </div>
+            <div id="skills">
+                <h2 class="section-header">&lt Skills &gt</h2>
+
+                <h2 class="section-header">&lt /Skills &gt</h2>
+                <a href="#projects"><i id="learn-more-projects" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
+                <a href="#projects"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+            </div>
+            <div id="projects">
+                <h2 class="section-header">&lt Projects &gt</h2>
+
+                <h2 class="section-header">&lt /Projects &gt</h2>
+                <a href="#contact"><i id="learn-more-contact" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
+                <a href="#contact"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+            </div>
+            <div id="contact">
+                <h2 class="section-header">&lt Contact &gt</h2>
+
+                <h2 class="section-header">&lt /Contact &gt</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
