@@ -7,13 +7,63 @@
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
     </style>
-    <script src="https://kit.fontawesome.com/f6fbc72d0a.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/f6fbc72d0a.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/a25f78f82e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Ethan McDermott</title>
 </head>
 <body>
     <script>
+        const jobTitles = ["Software Engineer", "Front-End Developer", "Back-End Developer", "Full Stack Developer", "Software Developer"]
+
+        $( document ).ready(async function() {
+            carousel(jobTitles, "#intro-job-title")
+        });
+
+        async function typeAnimation(sentence, htmlElementReference, delay = 100) {
+            const letters = sentence.split("");
+            let i = 0;
+            while(i < letters.length) {
+                await waitForMs(delay);
+                $(htmlElementReference).append(letters[i]);
+                i++
+            }
+            return;
+        }
+
+        async function deleteSentence(htmlElementReference) {
+            const sentence = $(htmlElementReference).html();
+            const letters = sentence.split("");
+            let i = 0;
+            while(letters.length > 0) {
+                await waitForMs(50);
+                letters.pop();
+                $(htmlElementReference).html(letters.join(""));
+            }
+        }
+
+        async function carousel(carouselList, htmlElementReference) {
+            var i = 0;
+            while(true) {
+                await typeAnimation(carouselList[i], htmlElementReference);
+                await waitForMs(1500);
+                await deleteSentence(htmlElementReference);
+                await waitForMs(500);
+                i++
+                if(i >= carouselList.length){
+                    i = 0;
+                }
+            }
+        }
+
+        function waitForMs(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+            
         $(document).ready(function(){
             // $('.fa-angle-double-down').hover(function() {
             //     $(this).animate({marginTop: "4rem"})
@@ -38,6 +88,42 @@
             //         $("#learn-more").removeClass("hover-glow");
             //     }, 9000
             // );
+            
+            $('#nav-bar-btn').click(function() {
+                $('#mobile-nav').animate({left: "0vw"})
+            })
+            $('#mobile-nav-exit').click(function() {
+                $('#mobile-nav').animate({left: "-75vw"})
+            })
+            $('.mobile-nav-link').click(function() {
+                $('#mobile-nav').animate({left: "-75vw"})
+            })
+            var mobileNavPos = $('#mobile-nav').position()
+            $('')
+            $('#html-background').hover(function() {
+                var position = $("#html-background").position()
+                $('#html-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-28)
+            })
+            $('#css-background').hover(function() {
+                var position = $("#css-background").position()
+                $('#css-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+6)
+            })
+            $('#js-background').hover(function() {
+                var position = $("#js-background").position()
+                $('#js-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-70)
+            })
+            $('#python-background').hover(function() {
+                var position = $("#python-background").position()
+                $('#python-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-20)
+            })
+            $('#django-background').hover(function() {
+                var position = $("#django-background").position()
+                $('#django-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-20)
+            })
+            $('#sql-background').hover(function() {
+                var position = $("#sql-background").position()
+                $('#sql-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+30)
+            })
             $(window).scroll(function() {
                 if ($(window).scrollTop() >= 300) {
                     $("#header").addClass("sticky");
@@ -62,19 +148,24 @@
                 <i class="fas fa-bars fa-2x"></i>
             </button>
         </nav>
-        <nav id="mobile-nav">
-            <a id="header-right" href="#wrapper">&lt HOME &gt</a>
-            <a href="#about">&lt About &gt</a>
-            <a href="#skills">&lt Skills &gt</a>
-            <a href="#projects">&lt Projects &gt</a>
-            <a href="#contact">&lt Contact &gt</a>
-        </nav>
+        <div id="mobile-nav">
+            <div id="mobile-nav-exit" >
+                <i class="fal fa-times fa-5x"></i>
+            </div>
+            <a class="mobile-nav-link" href="#wrapper">&lt Home &gt</a>
+            <a class="mobile-nav-link" href="#about">&lt About &gt</a>
+            <a class="mobile-nav-link" href="#skills">&lt Skills &gt</a>
+            <a class="mobile-nav-link" href="#projects">&lt Projects &gt</a>
+            <a class="mobile-nav-link" href="#contact">&lt Contact &gt</a>
+        </div>
         <div id="content">
             <div id="intro">
                 <h3>Hello, my name is</h3>
-                <h1>Ethan McDermott</h1>
-                <h2>I am a Software Developer</h2>
-                <a id="learn-more-btn" href="#about"><i id="learn-more" class="fas fa-angle-double-right fa-2x"></i> <span id="learn-more-text">Learn More</span></a>
+                <h1 id="intro-name">ETHAN McDERMOTT</h1>
+                <h2>I am a <span id="mobile-intro-title"><span id="intro-job-title"></span><span id="cursor-blinker"></span></span></h2>
+                <div id="learn-more-div">
+                    <a id="learn-more-btn" href="#about"><i id="learn-more" class="fas fa-angle-double-right fa-2x"></i> <span id="learn-more-text">Learn More</span></a>
+                </div>
             </div>
 
             <div id="about">
@@ -84,22 +175,107 @@
                          I earned my B.A. in Economics from UNCW with a minor in Math. I have worked as a Data Analyst for the past 2.5 years. I am excited to continue learning and growing as a developer.
                     </h3>
                 <h2 class="section-header">&lt /About &gt</h2>
-                <a href="#skills"><i id="learn-more-skills" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
-                <a href="#skills"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+                <a href="#skills"><i class="fas fa-angle-double-down fa-5x"></i></a>
             </div>
             <div id="skills">
                 <h2 class="section-header">&lt Skills &gt</h2>
-
+                    <div class="section-content desktop-view">
+                        <div class="background-icon" id="html-background">
+                            <i class="fab fa-html5 fa-8x"></i>
+                        </div>
+                        <h2 class="logo-text" id="html-logo-text-desktop">HTML5</h2>
+                        <div class="background-icon" id="css-background">
+                            <i class="fab fa-css3-alt fa-8x"></i>
+                        </div>
+                        <h2 class="logo-text" id="css-logo-text-desktop">CSS3</h2>
+                        <div class="background-icon" id="js-background">
+                            <i class="fab fa-js-square fa-8x"></i>
+                        </div>
+                        <h2 class="logo-text" id="js-logo-text-desktop">JavaScript</h2>
+                        <div class="background-icon" id="python-background">
+                            <i class="fab fa-python fa-8x"></i>
+                        </div>
+                        <h2 class="logo-text" id="python-logo-text-desktop">Python</h2>
+                        <div class="background-icon" id="django-background">
+                            <h1 class="django-logo">dj</h1>
+                        </div>
+                        <h2 class="logo-text" id="django-logo-text-desktop">Django</h2>
+                        <div class="background-icon" id="sql-background">
+                            <i class="fas fa-database fa-8x"></i>
+                        </div>
+                        <h2 class="logo-text" id="sql-logo-text-desktop">SQL</h2>
+                    </div>
+                    <div class="section-content mobile-view" id="skills-container-mobile">
+                        <div class="background-icon-mobile">
+                            <i class="fab fa-html5 fa-4x"></i>
+                            <h1 id="html-logo-text" class="mobile-logo-text-styling">HTML5</h1>
+                        </div>
+                        <div class="background-icon-mobile">
+                            <i class="fab fa-css3-alt fa-4x"></i>
+                            <h1 id="css-logo-text" class="mobile-logo-text-styling">CSS</h1>
+                        </div>
+                        <div class="background-icon-mobile">
+                            <i class="fab fa-js-square fa-4x"></i>
+                            <h1 id="js-logo-text" class="mobile-logo-text-styling">JavaScript</h1>
+                        </div>
+                        <div class="background-icon-mobile">
+                            <i class="fab fa-python fa-4x"></i>
+                            <h1 id="python-logo-text" class="mobile-logo-text-styling">Python</h1>
+                        </div>
+                        <div class="background-icon-mobile">
+                            <h1 class="django-logo" id="django-mobile">dj</h1>
+                            <h1 id="django-logo-text" class="mobile-logo-text-styling">Django</h1>
+                        </div>
+                        <div class="background-icon-mobile">
+                            <i class="fas fa-database fa-4x"></i>
+                            <h1 id="sql-logo-text" class="mobile-logo-text-styling">SQL</h1>
+                        </div>
+                    </div>
                 <h2 class="section-header">&lt /Skills &gt</h2>
-                <a href="#projects"><i id="learn-more-projects" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
-                <a href="#projects"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+                <a href="#projects"><i class="fas fa-angle-double-down fa-5x"></i></a>
             </div>
             <div id="projects">
                 <h2 class="section-header">&lt Projects &gt</h2>
-
+                    <div id="project-section-content">
+                        <div class="project-box" id="bug-tracker">
+                            <div class="gallery">
+                                <h2 class="mobile-project-title">Bug Tracker</h2>
+                                <img src="/images/dashboard-ss.png" alt="">
+                            </div>
+                            <div class="project-description">
+                                <h2 class="desktop-project-title">Bug Tracker</h2>
+                                <h4>A full stack ticketing system built for software development, complete with user login and registration</h4>
+                                <h3>Technologies Used:</h3>
+                                <div class="technologies-container">
+                                    <span class="technologies">HTML5</span>
+                                    <span class="technologies">CSS3</span>
+                                    <span class="technologies">JavaScript</span>
+                                    <span class="technologies">jQuery</span>
+                                    <span class="technologies">Python</span>
+                                    <span class="technologies">Django</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box" id="deals-from-the-vine">
+                            <div class="gallery">
+                                <h2 class="mobile-project-title">Deals From the Vine</h2>
+                                <img src="/images/wine-scraper-ss.png" alt="">
+                            </div>
+                            <div class="project-description">
+                                <h2 class="desktop-project-title">Deals From the Vine</h2>
+                                <h4>A web scraping project that takes wine deals form various sites and displays them in one convenient location</h4>
+                                <h3>Technologies Used:</h3>
+                                <div class="technologies-container">
+                                    <span class="technologies">HTML5</span>
+                                    <span class="technologies">CSS3</span>
+                                    <span class="technologies">Python</span>
+                                    <span class="technologies">Beautiful Soup</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <h2 class="section-header">&lt /Projects &gt</h2>
-                <a href="#contact"><i id="learn-more-contact" class="fas fa-angle-double-down fa-10x desktop-scroll"></i></a>
-                <a href="#contact"><i class="fas fa-angle-double-down fa-5x mobile-scroll"></i></a>
+                <a href="#contact"><i class="fas fa-angle-double-down fa-5x"></i></a>
             </div>
             <div id="contact">
                 <h2 class="section-header">&lt Contact &gt</h2>
