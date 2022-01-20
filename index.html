@@ -11,7 +11,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
     </style>
-    <!-- <script src="https://kit.fontawesome.com/f6fbc72d0a.js" crossorigin="anonymous"></script> -->
     <script src="https://kit.fontawesome.com/a25f78f82e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Ethan McDermott</title>
@@ -63,43 +62,35 @@
         function waitForMs(ms) {
             return new Promise(resolve => setTimeout(resolve, ms))
         }
-            
+        
+        var mouse_inside = false;
         $(document).ready(function(){
-            // $('.fa-angle-double-down').hover(function() {
-            //     $(this).animate({marginTop: "4rem"})
-            // }, function() {
-            //     $(this).animate({marginTop: "3rem"})
-            // })
-
-            // setTimeout(
-            //     function() {
-            //         $("#learn-more").addClass("hover-glow")
-            //         var counter = 0;
-            //         while (counter < 5) {
-            //             $("#learn-more").animate({marginTop: "4rem"});
-            //             $("#learn-more").animate({marginTop: "3rem"});
-            //             counter ++;
-            //         }
-            //     }, 5000
-            // );
-
-            // setTimeout(
-            //     function() {
-            //         $("#learn-more").removeClass("hover-glow");
-            //     }, 9000
-            // );
-            
+            var mobileNavPos = $('#mobile-nav').position()
             $('#nav-bar-btn').click(function() {
-                $('#mobile-nav').animate({left: "0vw"})
+                if (mobileNavPos === -294.75) {
+                    $('#mobile-nav').stop().animate({left: "-75vw"})
+                } else {
+                    $('#mobile-nav').stop().animate({left: "0vw"})
+                }
+                
             })
             $('#mobile-nav-exit').click(function() {
-                $('#mobile-nav').animate({left: "-75vw"})
+                $('#mobile-nav').stop().animate({left: "-75vw"})
             })
             $('.mobile-nav-link').click(function() {
-                $('#mobile-nav').animate({left: "-75vw"})
+                $('#mobile-nav').stop().animate({left: "-75vw"})
             })
-            var mobileNavPos = $('#mobile-nav').position()
-            $('')
+            
+            if (mobileNavPos.left === -294.75) {
+                $('#mobile-nav').hover(function(){ 
+                    mouse_inside=true; 
+                }, function(){ 
+                    mouse_inside=false; 
+                });
+                $("body").mouseup(function(){ 
+                    if(! mouse_inside) $('#mobile-nav').stop().animate({left: "-75vw"});
+                });
+            }
             $('#html-background').hover(function() {
                 var position = $("#html-background").position()
                 $('#html-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-28)
@@ -175,7 +166,7 @@
                          I earned my B.A. in Economics from UNCW with a minor in Math. I have worked as a Data Analyst for the past 2.5 years. I am excited to continue learning and growing as a developer.
                     </h3>
                 <h2 class="section-header">&lt /About &gt</h2>
-                <a href="#skills"><i class="fas fa-angle-double-down fa-5x"></i></a>
+                <a href="#skills"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="skills">
                 <h2 class="section-header">&lt Skills &gt</h2>
@@ -232,7 +223,7 @@
                         </div>
                     </div>
                 <h2 class="section-header">&lt /Skills &gt</h2>
-                <a href="#projects"><i class="fas fa-angle-double-down fa-5x"></i></a>
+                <a href="#projects"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="projects">
                 <h2 class="section-header">&lt Projects &gt</h2>
@@ -254,6 +245,10 @@
                                     <span class="technologies">Python</span>
                                     <span class="technologies">Django</span>
                                 </div>
+                                <div class="project-links">
+                                    <a href="https://bug-tracker-cfmix.ondigitalocean.app/about" target="_blank" rel="noopener noreferrer">Live Site</a>
+                                    <a id="repo-link" href="https://github.com/EthanJMcDermott/bugTracker/tree/master" target="_blank" rel="noopener noreferrer">Github Repo</a>
+                                </div>
                             </div>
                         </div>
                         <div class="project-box" id="deals-from-the-vine">
@@ -271,17 +266,37 @@
                                     <span class="technologies">Python</span>
                                     <span class="technologies">Beautiful Soup</span>
                                 </div>
+                                <div class="project-links">
+                                    <a id="repo-link" href="https://github.com/EthanJMcDermott/wine_scraper" target="_blank" rel="noopener noreferrer">Github Repo</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 <h2 class="section-header">&lt /Projects &gt</h2>
-                <a href="#contact"><i class="fas fa-angle-double-down fa-5x"></i></a>
+                <a href="#contact"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="contact">
                 <h2 class="section-header">&lt Contact &gt</h2>
-
+                <form action="https://formsubmit.co/ethan@ethanmcdermott.dev" method="POST">
+                    <div class="input-container-flex">
+                        <div class="label-input">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" placeholder="name" required> 
+                        </div>
+                        <div id="email-container" class="label-input">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" placeholder="email" required>
+                        </div>
+                    </div>
+                    <textarea name="message-text" cols="30" rows="10"  placeholder="Type your message here..." required></textarea>
+                    <button id="form-submit" type="submit">Send</button>
+                </form>
                 <h2 class="section-header">&lt /Contact &gt</h2>
             </div>
+        </div>
+        <div id="footer">
+            <a id="linkedin-footer" href="https://www.linkedin.com/in/ethan-mcdermott/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-3x"></i></a>
+            <a id="github-footer" href="https://github.com/EthanJMcDermott/portfolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-github-square fa-3x"></i></a>
         </div>
     </div>
 </body>

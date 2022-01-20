@@ -33,12 +33,37 @@ html {
 button {
     border: none;
     padding: .5rem;
+    cursor: pointer;
 }
 
 #wrapper {
     background-image: radial-gradient(rgb(55, 55, 58), rgb(32, 33, 34));
     height: fit-content;
     width: 100vw;
+}
+
+#content {
+    padding-bottom: 5rem;
+}
+
+#footer {
+    position: fixed;
+    top: 93%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: white;
+    height: fit-content;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+#linkedin-footer i {
+    color: #0a66c2;
+}
+
+#github-footer i {
+    color: black;
 }
 
 /* Navbar Styling */
@@ -111,8 +136,6 @@ nav a, #header-left {
 @keyframes slide {
     100% { left: 0; }
 }
-
-
 
 /* Intro styling */
 #intro {
@@ -374,6 +397,53 @@ img {
     border-radius: 50px;
 }
 
+.project-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    max-width: 15rem;
+}
+
+.project-description a {
+    background-color: #1396ff;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bolder;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#repo-link {
+    background-color: orange;
+}
+
+/* Contact From Styling */
+form {
+    width: 60%;
+    padding: 2rem;
+    margin: auto;
+}
+
+form input, textarea {
+    color: black;
+    display: block;
+    padding: .5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(247, 247, 247)
+}
+
+textarea {
+    resize: none;
+}
+
+#form-submit {
+    width: 10rem;
+    border-radius: 5px;
+    background-color: orange;
+}
+
 /* Medium Screens */
 @media only screen and (min-width: 600px){
     #intro h1 { font-size: var(--fs-h1-md); }
@@ -392,6 +462,11 @@ img {
         border: 4px solid white;
         border-radius: 50px;
         background: none;
+    }
+
+    .fa-angle-double-down:hover {
+        transition: ease-in-out .5s;
+        color: rgb(172, 33, 160);
     }
     
     .fa-angle-double-right {
@@ -430,6 +505,29 @@ img {
 
     .technologies-container {
         display: block;
+    }
+
+    form {
+        width: 535px;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .input-container-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .label-input {
+        width: 45%;
+    }
+
+    input, textarea, label, #form-submit {
+        font-size: 1.25rem;
     }
 
 }
@@ -588,7 +686,11 @@ img {
         background-color: #ffb732;
     }
 
-    
+    #footer {
+        position: relative;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 }
 
 @media only screen and (min-width: 1650px){
@@ -614,6 +716,16 @@ img {
         margin-top: 2rem;
         margin-bottom: 5rem;
         color: white;
+    }
+
+    form {
+        width: 675px;
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+    }
+
+    input, textarea, label, #form-submit {
+        font-size: 1.5rem;
     }
 }
 
