@@ -159,6 +159,7 @@ nav a, #header-left {
 
 #mobile-intro-title {
     display: block;
+    height: 4rem;
 }
 
 #cursor-blinker {
