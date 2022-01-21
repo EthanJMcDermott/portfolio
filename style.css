@@ -8,12 +8,12 @@
 
     --fs-h1-md: 4.5rem;
     --fs-h2-md: 3.25rem;
-    --fs-h3-md: 2.25rem;
+    --fs-h3-md: 1.75rem;
 
-    --fs-h1-dsktp: 6rem;
-    --fs-h2-dsktp: 4.25rem;
-    --fs-h3-dsktp: 2.25rem;
-    --fs-h4-dsktp: 1.55rem;
+    --fs-h1-dsktp: 5rem;
+    --fs-h2-dsktp: 3.55rem;
+    --fs-h3-dsktp: 1.75rem;
+    --fs-h4-dsktp: 1.5rem;
 }
 
 * {
@@ -94,6 +94,7 @@ nav a, #header-left {
     cursor: pointer;
 }
 
+.scroll-icon {display: none;}
 
 #mobile-nav {
     padding: 0;
@@ -376,6 +377,7 @@ nav a, #header-left {
 
 img {
     width: 100%;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
 .project-description h4 {
@@ -396,11 +398,12 @@ img {
 }
 
 .technologies {
-    padding: .5rem;
+    padding: .75rem;
     margin: .25rem;
     margin-bottom: 1rem;
-    background-color: #6826aa;
+    background-color: #8354b2;
     border-radius: 50px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
 .project-links {
@@ -411,7 +414,7 @@ img {
 }
 
 .project-description a {
-    background-color: #1396ff;
+    background-color: #389ff2;
     padding: 1rem;
     border-radius: 10px;
     font-weight: bolder;
@@ -419,7 +422,7 @@ img {
 }
 
 #repo-link {
-    background-color: orange;
+    background-color: #de9611;
 }
 
 /* Contact From Styling */
@@ -461,6 +464,8 @@ textarea {
         width: fit-content;
         text-align: center;
     }
+
+    .scroll-icon {display: block;}
 
     #learn-more-btn {
         padding: 2.5rem;

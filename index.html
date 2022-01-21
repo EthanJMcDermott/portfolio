@@ -64,21 +64,26 @@
         }
         
         var mouse_inside = false;
+        var mobileNavOpen = false
         $(document).ready(function(){
             var mobileNavPos = $('#mobile-nav').position()
             $('#nav-bar-btn').click(function() {
-                if (mobileNavPos === -294.75) {
+                if (mobileNavOpen === true) {
                     $('#mobile-nav').stop().animate({left: "-75vw"})
+                    mobileNavOpen = false
                 } else {
                     $('#mobile-nav').stop().animate({left: "0vw"})
+                    mobileNavOpen = true
                 }
                 
             })
             $('#mobile-nav-exit').click(function() {
                 $('#mobile-nav').stop().animate({left: "-75vw"})
+                mobileNavOpen = false
             })
             $('.mobile-nav-link').click(function() {
                 $('#mobile-nav').stop().animate({left: "-75vw"})
+                mobileNavOpen = false
             })
             
             if (mobileNavPos.left === -294.75) {
@@ -93,27 +98,27 @@
             }
             $('#html-background').hover(function() {
                 var position = $("#html-background").position()
-                $('#html-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-28)
+                $('#html-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-5)
             })
             $('#css-background').hover(function() {
                 var position = $("#css-background").position()
-                $('#css-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+6)
+                $('#css-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+20)
             })
             $('#js-background').hover(function() {
                 var position = $("#js-background").position()
-                $('#js-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-70)
+                $('#js-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-43)
             })
             $('#python-background').hover(function() {
                 var position = $("#python-background").position()
-                $('#python-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-20)
+                $('#python-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+5)
             })
             $('#django-background').hover(function() {
                 var position = $("#django-background").position()
-                $('#django-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left-20)
+                $('#django-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+2)
             })
             $('#sql-background').hover(function() {
                 var position = $("#sql-background").position()
-                $('#sql-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+30)
+                $('#sql-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+40)
             })
             $(window).scroll(function() {
                 if ($(window).scrollTop() >= 300) {
@@ -141,7 +146,7 @@
         </nav>
         <div id="mobile-nav">
             <div id="mobile-nav-exit" >
-                <i class="fal fa-times fa-5x"></i>
+                <i class="fal fa-times fa-3x"></i>
             </div>
             <a class="mobile-nav-link" href="#wrapper">&lt Home &gt</a>
             <a class="mobile-nav-link" href="#about">&lt About &gt</a>
@@ -166,7 +171,7 @@
                          I earned my B.A. in Economics from UNCW with a minor in Math. I have worked as a Data Analyst for the past 2.5 years. I am excited to continue learning and growing as a developer.
                     </h3>
                 <h2 class="section-header">&lt /About &gt</h2>
-                <a href="#skills"><i class="fal fa-angle-double-down fa-6x"></i></a>
+                <a class="scroll-icon" href="#skills"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="skills">
                 <h2 class="section-header">&lt Skills &gt</h2>
@@ -223,7 +228,7 @@
                         </div>
                     </div>
                 <h2 class="section-header">&lt /Skills &gt</h2>
-                <a href="#projects"><i class="fal fa-angle-double-down fa-6x"></i></a>
+                <a class="scroll-icon" href="#projects"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="projects">
                 <h2 class="section-header">&lt Projects &gt</h2>
@@ -273,7 +278,7 @@
                         </div>
                     </div>
                 <h2 class="section-header">&lt /Projects &gt</h2>
-                <a href="#contact"><i class="fal fa-angle-double-down fa-6x"></i></a>
+                <a class="scroll-icon" href="#contact"><i class="fal fa-angle-double-down fa-6x"></i></a>
             </div>
             <div id="contact">
                 <h2 class="section-header">&lt Contact &gt</h2>
