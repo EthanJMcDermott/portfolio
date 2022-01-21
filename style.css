@@ -47,23 +47,27 @@ button {
 }
 
 #footer {
-    position: fixed;
-    top: 93%;
+    /* position: fixed;
+    top: 93%; */
     display: flex;
     justify-content: space-around;
     width: 100%;
-    background-color: white;
     height: fit-content;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-bottom: 1rem;
 }
 
 #linkedin-footer i {
     color: #0a66c2;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
 }
 
 #github-footer i {
     color: black;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
 }
 
 /* Navbar Styling */
@@ -100,6 +104,7 @@ nav a, #header-left {
     width: 75vw;
     height: 101vh;
     background: white;
+    z-index: 3;
     /* -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards; */
 }
@@ -193,12 +198,12 @@ nav a, #header-left {
 }
 
 #learn-more-div {
-    width: 100%;
+    width: 14rem;
+    margin: auto;
 }
 
 #learn-more-btn {
     padding: 1.5rem;
-    margin-left: 20%;
     border: 4px solid white;
     border-radius: 50px;
     background-color: white;
@@ -479,6 +484,10 @@ textarea {
         font-size: 2.5rem;
         color: white;
         font-weight: bolder;
+    }
+
+    #learn-more-div {
+        width: 23rem;
     }
 
     #cursor-blinker {
