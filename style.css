@@ -239,10 +239,19 @@ nav a, #header-left {
     letter-spacing: 1rem;
     color: white;
     margin-left: 1rem;
+    text-align: center;
+}
+
+.section-end {
+    display: none;
 }
 
 .section-content {
     padding: 1rem;
+}
+
+#about .section-content {
+    text-align: center;
 }
 
 #about, #skills, #projects, #contact {
@@ -502,6 +511,16 @@ textarea {
     #about, #skills, #projects, #contact {
         padding-top: 10rem;
     }
+
+    #about .section-content {
+        text-align: initial;
+    }
+
+    .section-header {
+        text-align: initial;
+    }
+
+    .section-end {display: block;}
 
     .section-content {
         padding: 5rem 0 5rem 0;
