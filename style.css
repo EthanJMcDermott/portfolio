@@ -570,6 +570,7 @@ textarea {
 
     #crypto-view-btn, #wine-view-btn, #bug-view-btn {
         cursor: pointer;
+        display: block;
     }
 
     .larger-img-container {
