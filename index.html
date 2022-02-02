@@ -119,7 +119,26 @@
             $('#sql-background').hover(function() {
                 var position = $("#sql-background").position()
                 $('#sql-logo-text-desktop').stop().fadeToggle('fast').css("top", position.top+220).css("left", position.left+40)
+            });
+            $('#crypto-view-btn').click(function() {
+                $('#view-larger-crypto').fadeIn()
             })
+            $('#close-crypto').click(function() {
+                $('#view-larger-crypto').fadeOut()
+            })
+            $('#wine-view-btn').click(function() {
+                $('#view-larger-wine').fadeIn()
+            })
+            $('#close-wine').click(function() {
+                $('#view-larger-wine').fadeOut()
+            })
+            $('#bug-view-btn').click(function() {
+                $('#view-larger-bug').fadeIn()
+            })
+            $('#close-bug').click(function() {
+                $('#view-larger-bug').fadeOut()
+            })
+
             $(window).scroll(function() {
                 if ($(window).scrollTop() >= 300) {
                     $("#header").addClass("sticky");
@@ -237,6 +256,13 @@
                             <div class="gallery">
                                 <h2 class="mobile-project-title">Bug Tracker</h2>
                                 <img src="images/dashboard-ss.png" alt="">
+                                <h3 id="bug-view-btn" class="view-larger">View Larger</h3>
+                                <div id="view-larger-bug" class="larger-img-container">
+                                    <img class="larger-img" src="images/dashboard-ss.PNG" alt="">
+                                    <div class="button-container">
+                                        <button id="close-bug" class="close-larger-btn"><h3>Close</h3></button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="project-description">
                                 <h2 class="desktop-project-title">Bug Tracker</h2>
@@ -260,6 +286,13 @@
                             <div class="gallery">
                                 <h2 class="mobile-project-title">Deals From the Vine</h2>
                                 <img src="images/wine-scraper-ss.PNG" alt="">
+                                <h3 id="wine-view-btn" class="view-larger">View Larger</h3>
+                                <div id="view-larger-wine" class="larger-img-container">
+                                    <img id="wine-larger-img" class="larger-img" src="images/wine-scraper-ss.PNG" alt="">
+                                    <div class="button-container">
+                                        <button id="close-wine" class="close-larger-btn"><h3>Close</h3></button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="project-description">
                                 <h2 class="desktop-project-title">Deals From the Vine</h2>
@@ -273,6 +306,34 @@
                                 </div>
                                 <div class="project-links">
                                     <a id="repo-link" href="https://github.com/EthanJMcDermott/wine_scraper" target="_blank" rel="noopener noreferrer">Github Repo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box" id="crypto-tracker">
+                            <div class="gallery">
+                                <h2 class="mobile-project-title">Crypto Tracker (Work in Progress)</h2>
+                                <img src="images/cryptoTracker-ss.PNG" alt="">
+                                <h3 id="crypto-view-btn" class="view-larger">View Larger</h3>
+                                <div id="view-larger-crypto" class="larger-img-container">
+                                    <img class="larger-img" src="images/cryptoTracker-ss.PNG" alt="">
+                                    <div class="button-container">
+                                        <button id="close-crypto" class="close-larger-btn"><h3>Close</h3></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-description">
+                                <h2 class="desktop-project-title">Crypto Tracker (Work in Progress)</h2>
+                                <h4>A react app using CoinMarketCap's API to track various crypto currencies, using state and ansynchronous functions to update prices every minute</h4>
+                                <h3>Technologies Used:</h3>
+                                <div class="technologies-container">
+                                    <span class="technologies">HTML5</span>
+                                    <span class="technologies">CSS3</span>
+                                    <span class="technologies">JavaScript</span>
+                                    <span class="technologies">ReactJS</span>
+                                    <span class="technologies">AXIOS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a id="repo-link" href="https://github.com/EthanJMcDermott/cryptoTracker" target="_blank" rel="noopener noreferrer">Github Repo</a>
                                 </div>
                             </div>
                         </div>

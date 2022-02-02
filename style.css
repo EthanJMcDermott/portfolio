@@ -462,6 +462,10 @@ textarea {
     background-color: orange;
 }
 
+#crypto-view-btn, #wine-view-btn, #bug-view-btn {
+    display: none;
+}
+
 /* Medium Screens */
 @media only screen and (min-width: 600px){
     #intro h1 { font-size: var(--fs-h1-md); }
@@ -564,6 +568,51 @@ textarea {
         font-size: 1.25rem;
     }
 
+    #crypto-view-btn, #wine-view-btn, #bug-view-btn {
+        cursor: pointer;
+    }
+
+    .larger-img-container {
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        z-index: 30;
+        width: 80vw;
+        height: fit-content;
+        background-color: white;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    }
+
+    #view-larger-wine {
+        width: 60vw;
+        height: fit-content;
+    }
+
+    .larger-img {
+        width: 95%;
+        margin: 2.5%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
+    #wine-larger-img {
+        width: 95%;
+    }
+
+    .button-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+
+    .close-larger-btn {
+        background-color: red;
+        padding: 1rem;
+        border-radius: 10px;
+    }
 }
 
 
