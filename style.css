@@ -466,6 +466,14 @@ textarea {
     display: none;
 }
 
+.larger-img-container {
+    display: none;
+}
+
+.close-larger-btn {
+    display: none;
+}
+
 /* Medium Screens */
 @media only screen and (min-width: 600px){
     #intro h1 { font-size: var(--fs-h1-md); }
@@ -613,6 +621,7 @@ textarea {
         background-color: red;
         padding: 1rem;
         border-radius: 10px;
+        display: block;
     }
 }
 
